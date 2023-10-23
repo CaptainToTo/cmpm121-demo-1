@@ -9,8 +9,8 @@ let curFontSize: number = originalFontSize;
 
 const maxJuiceHeight: number = 500;
 
-let pricePerUnit: number = 5;
-let cupVolume: number = 30;
+const pricePerUnit: number = 5;
+const cupVolume: number = 30;
 
 // let autoClickSpeed: number = -1;
 // let autoClicker: number;

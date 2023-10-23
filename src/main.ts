@@ -49,6 +49,17 @@ const biggerCups: Upgrade = UpgradeFactory.buildBiggerCups().setAction(() => {
 const employees: Upgrade = UpgradeFactory.buildEmployees().setAction(() => {
   hitPerClick += 1;
 });
+const investments: Upgrade = UpgradeFactory.buildInvestments().setAction(() => {
+  money *= 2;
+});
+const unionBusting: Upgrade = UpgradeFactory.buildUnionBusting().setAction(
+  () => {
+    if (employees.getPrice() >= 600) {
+      employees.setPrice(employees.getPrice() - 500);
+      canvas.setUpgradeContent(employees.name, employees.toString());
+    }
+  },
+);
 
 const canvas = Canvas.buildCanvas(window.innerWidth, window.innerHeight)
   .buildMoney(500, 150)
@@ -73,8 +84,8 @@ let curCheckpoint: number = 0;
 const checkpoints: { upgrade: Upgrade; checkpoint: number }[] = [
   { upgrade: biggerCups, checkpoint: 2 },
   { upgrade: employees, checkpoint: 5 },
-  //{ upgrade: investments, checkpoint: 8 },
-  //{ upgrade: unionBusting, checkpoint: 10 },
+  { upgrade: investments, checkpoint: 8 },
+  { upgrade: unionBusting, checkpoint: 10 },
 ];
 
 function buyUpgrade(upgrade: Upgrade, canvas: Canvas) {

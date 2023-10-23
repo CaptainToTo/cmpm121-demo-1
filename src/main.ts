@@ -83,7 +83,7 @@ function buyUpgrade(upgrade: Upgrade, canvas: Canvas) {
     canvas.setMoney("$" + money);
     upgrade.buy();
     upgrade.doAction();
-    //upgrade.increasePrice(upgrade.getPriceStep());
+    upgrade.increasePrice(upgrade.getPriceStep());
     canvas.setUpgradeContent(upgrade.name, upgrade.toString());
     upgradeProgress++;
     checkUpgradeProgress();

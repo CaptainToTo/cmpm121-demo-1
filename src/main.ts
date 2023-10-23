@@ -53,7 +53,9 @@ const employees: Upgrade = UpgradeFactory.buildEmployees().setAction(() => {
 const canvas = Canvas.buildCanvas(window.innerWidth, window.innerHeight)
   .buildMoney(500, 150)
   .buildButton(100, 150, () => {
-    updateJuicing();
+    for (let i = 0; i < hitPerClick; i++) {
+      updateJuicing();
+    }
   })
   .setButtonContent(fr.getChar())
   .setButtonSize(10)
